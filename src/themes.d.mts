@@ -1,0 +1,1 @@
+export type Theme='green'|'red'|'black'|'white'|'blue'|'purple'|'orange'|'pink';export const themes:{id:Theme;name:string;bg:string;card:string;text:string;accent:string;border:string}[];export function normalizeTheme(value:unknown):Theme;export function themeStorageKey(id:string):string;
