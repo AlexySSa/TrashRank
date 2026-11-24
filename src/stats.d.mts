@@ -6,5 +6,7 @@ export function dayKey(date:string|Date,tz:string):string;
 export function weekStart(now:Date,tz:string):string;
 export function filtered(records:RecordItem[],period:string,tz:string,since:string,now?:Date):RecordItem[];
 export function ranking(members:Member[],records:RecordItem[]):Ranked[];
+export function rotationOrder(members:Member[],records:RecordItem[]):Ranked[];
+export function rotationReason(order:Ranked[]):string;
 export function nextMember(members:Member[],records:RecordItem[]):Ranked|undefined;
 export function relative(date:string|null|undefined,tz:string,now?:Date):string;
