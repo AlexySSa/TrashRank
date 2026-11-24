@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {validEmoji,fileInfo,MAX_BYTES} from '../src/wall-utils.mjs';
+test('accept emoji sequences and reject text',()=>{for(const e of ['🔥','👨‍👩‍👧‍👦','👍🏽','🇸🇻','1️⃣','❤️'])assert.equal(validEmoji(e),true,e);for(const e of ['hello','🔥🔥','x🔥',' ',''])assert.equal(validEmoji(e),false,e)});
+test('file types and size are checked',()=>{assert.equal(fileInfo('image/png',MAX_BYTES).kind,'image');assert.equal(fileInfo('audio/webm;codecs=opus',1024).kind,'audio');assert.equal(fileInfo('image/png',MAX_BYTES+1),null);assert.equal(fileInfo('image/svg+xml',100),null);assert.equal(fileInfo('text/html',100),null);assert.equal(fileInfo('audio/mp4',0),null)});
