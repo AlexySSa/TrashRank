@@ -1,0 +1,4 @@
+export const MAX_BYTES=5*1024*1024;
+const types={'image/jpeg':['image','jpg'],'image/png':['image','png'],'image/webp':['image','webp'],'image/gif':['image','gif'],'audio/webm':['audio','webm'],'audio/ogg':['audio','ogg'],'audio/mpeg':['audio','mp3'],'audio/mp4':['audio','m4a'],'audio/wav':['audio','wav'],'audio/x-wav':['audio','wav'],'audio/aac':['audio','aac'],'audio/x-m4a':['audio','m4a']};
+export function fileInfo(type,size){const mime=type.toLowerCase().split(';')[0],v=types[mime];return v&&Number.isFinite(size)&&size>0&&size<=MAX_BYTES?{kind:v[0],ext:v[1],mime}:null}
+export function validEmoji(s){if(!s||s.length>64||Array.from(s).length>32)return false;const segments=Array.from(new Intl.Segmenter(undefined,{granularity:'grapheme'}).segment(s));return segments.length===1&&(/\p{Extended_Pictographic}|\p{Regional_Indicator}|[0-9#*]\uFE0F?\u20E3/u.test(s))&&!/[\s\p{Letter}]/u.test(s)}

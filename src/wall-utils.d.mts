@@ -1,0 +1,1 @@
+export const MAX_BYTES:number;export function fileInfo(type:string,size:number):{kind:'image'|'audio';ext:string;mime:string}|null;export function validEmoji(s:string):boolean;
