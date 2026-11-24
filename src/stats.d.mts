@@ -1,0 +1,10 @@
+export type Member={id:string;house_id:string;name:string;username:string;avatar:string|null;role:'admin'|'member';active:boolean;created_at:string};
+export type RecordItem={id:string;house_id:string;member_id:string;kind:keyof typeof kinds;created_at:string};
+export type Ranked=Member&{count:number;percent:number;last:string|null};
+export const kinds:{general:string;organica:string;plastico:string;papel:string;vidrio:string};
+export function dayKey(date:string|Date,tz:string):string;
+export function weekStart(now:Date,tz:string):string;
+export function filtered(records:RecordItem[],period:string,tz:string,since:string,now?:Date):RecordItem[];
+export function ranking(members:Member[],records:RecordItem[]):Ranked[];
+export function nextMember(members:Member[],records:RecordItem[]):Ranked|undefined;
+export function relative(date:string|null|undefined,tz:string,now?:Date):string;
